@@ -53,6 +53,37 @@ class Solution:
             if prod > x:
                 return prev
         return prev
+# version 4:
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        if x < 2:
+            return x
+        for i in range(x+1):
+            prod = i * i
+            if prod > x:
+                return i-1
+        return -1
+    
+# Approach 2: using binary search
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        l = 0
+        r = x
+        while l <= r:
+            mid = l + ((r - l) // 2)
+            prod = mid * mid
+            if prod < x:
+                l = mid + 1
+            elif prod > x:
+                r = mid -1
+            else:
+                return mid
+        return r
+		# When there is no perfect square, 'r' is the the value on the left
+        # of where it would have been (rounding down). If we were rounding up, 
+        # we would return 'l'
+        # When the loop exits, right will be the largest integer such that 
+        # right * right is less than or equal to x. Therefore, return right.
 
 
 
