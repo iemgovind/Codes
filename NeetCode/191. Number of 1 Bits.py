@@ -25,7 +25,7 @@ class Solution:
         return res
     
 # Approach 3: using bit manipulation
-class Solution:
+# version 1:
     def hammingWeight(self, n: int) -> int:
         res = 0
         while n:
@@ -34,6 +34,14 @@ class Solution:
             res += digit
             n //= 2
             print('n', n)
+        return res
+# version 2:
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        res = 0
+        while n:
+            n &= (n-1)
+            res += 1
         return res
     
 solution = Solution()
