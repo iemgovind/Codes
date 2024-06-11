@@ -9,3 +9,5 @@ a=bin(n)[2:]
 print('a', a)
 print(type(a))
 
+array = [0] * 2
+print(array)
